@@ -1,0 +1,79 @@
+CAREER OF A WEB DEVELOPER: In demand developers are problem solvers not just coders
+	
+	Career Options:
+		Job Titles:
+			- Backend, Frontend, Full Stack, Web Developer
+			- Mobile Developer
+			- Software Developer (can create almost all type of apps: web, mobile, desktop, etc)
+			- Software Engineer
+
+		Type of Work:
+			- Entrepreneurship, Freelance (with Upwork plateform maybe aha)
+			- Startups
+			- Big Tech Companies
+			- Ad Agencies
+			- Remote Work
+
+	Developper Fundamentals:
+		Try to figure out code bug by yourself first
+			then after if still blocked, STACKOVERFLOW
+				so Googling and Stackoverflow are the best friend of developers
+
+	What if i don't have enough experience:
+		keep in mind that job postings are put in order to weed out the weak candidates
+			by just making job sound harder, 
+				tougher than it really is in order to remove junior developpers from applying
+				
+		ask yourself is this job going to be tough ?
+			because if you apply to something that you're 100% qualified for, where is the room to grow ?
+	
+		how can you have good experience if you're just getting started ?
+			as with everything there's the regular way and 
+				there's the smart way : 
+					you see, experience doesn't come just from working at a company
+					there's many ways to demonstrate experience without a past job
+						and it's by : github, website, big projects, blog
+		
+		Getting the interview:
+			GitHub:
+				it's a great way to show that you actually code, that you have built projects
+					ways to improve github profile or to just add more experience is:
+						first: (start to) make a lot of commits (to get a good history of your work)
+						last: contribute, participate as you can less or more in open source projects
+
+			Website:
+				if you're a web dev, it's good to have your own website where to showcase your skills
+				this is something to speak about in interview and maybe why not how you built it
+				
+				however, keep in mind that you don't need to build the webiste from scratch
+					there's a ton of free templates/ressources that can be use like with:
+						create-tim.com
+						mashup-template.com
+					take example of : rocketgirl.herokuapp.com
+				
+			1-2 Big Projects:
+				having something like 1 big project make you sound more impressive 
+					than somebody that just built a ton of tiny projects
+				if you have no work experience, talk about these 1-2 big projects
+					on the work experience part in the resume
+			Blog:
+				another thing you can add to your resume,
+					especially if it's related to a technology you or the company are using
+				Medium: 
+					medium.com allows anybody to just post a blog post
+					it also allows to push an article to a specific popular publishers to get more readers
+					so create an account on it and start posting
+			
+		Talk about your portfolio projects, maybe talk about your website and how you built it,
+		talk about maybe a hackathon you participate or open source projects you have worked on
+		write a blog post on a specific technology that the company you're applying to is using
+		
+			all of that answer this question: do you have experience ?
+			
+		also know there's many things that you can add that are not developper
+			but that can make you a great employee
+				so if you have them, you can add skills like:
+					the ability to manage people and communicate with others
+		so know that any skill that is related to getting the job can be included
+		
+		'i have only 6 months / 1 year of coding experience': never show things like that on your resume

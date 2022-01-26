@@ -1,0 +1,1085 @@
+JAVASCRIPT:
+	What is Javascript:
+		JS was created by Netscape Browser in 1995
+			After all the other browser started too using JS, their own implementation of JS
+				so the Netscape submitted JS to the ECMA International organism to standardized JS
+		It got later standardized, and the name of the most popular standard is ECMAScript
+	Tricks about console:
+		clear() --> function to clear the console board
+		shift+enter --> to go to a new line (without the console runs code)
+
+	NB:
+		Number
+			// All basic operations work : +-/*%
+			// Exception : 10 - "3" --> returns: 7
+			// "str"-"str" : returns NaN (Not A Number) that is a number type value 
+		String
+			//Basics: Concatenation between string
+			//Exception: 10 + "3" ---> "103"
+		Variables:
+			prompt(), alert(), console.log()
+			JS variables name follow: camelCase naming convention
+			Type Cast: 
+				Number(), String()...
+				but keep in mind that Number("a string") returns NaN as value
+					Number('') --> 0, Number("0") --> 0, Number("1") --> 1, Number("2") --> 2, etc...
+			
+			The semicolon at the end of an expression is highly recommended
+			Reassignment
+			Undefined
+		Functions:
+			- var a = function(){} OR var a = function name(){} : is called FUNCTION EXPRESSION
+				var a = function name(){}: this one use is limited so don't worry about it
+			- function(){}: is called ANONYMOUS FUNCTION
+			- function name() {}: this is what's called FUNCTION DECLARATION
+		Data Structures:
+			Arrays:
+				var emptyArray = []
+				var str = ["a", "b"]
+				var num = [1, 1.5, 2]
+				var bool = [true, false, true]
+				val func = [function test1(){console.log('test1')}, function test2(){console.log('test2')}]
+				val mixed = [1, "a", true, undefined, function f(){console.log('f')}]
+					'mixed' array kind is not adviced, it's actually a bit of performance issue
+						but you can use this kind if you want
+				MORE Ressources: W3C JS ARRAYS METHODS
+
+			Objects: 
+				objects are collection of property
+				METHODS: are function inside an object
+				var emptyObj = {};
+				var obj = {
+					username: oumar,
+					age: 22
+				};
+			Null
+				var nullObj = null;
+
+
+			RECAP about some JS Terminology:
+				//expression
+					1+3;
+					var a = 2;
+					return true;
+				//assignment
+					var bool = true;
+
+				//function declaration
+					function newFunction(){}
+
+				//function expression
+					var newFunction = function(){};
+
+				//function calling or invoking
+					alert();
+					otherFunction(param1, param2);
+
+				//function vs method
+					function thisIsAFunction(){}
+					var obj = {
+						thisIsAMethod: function(){}
+					};
+					thisIsAFunction();
+					obj.thisIsAMethod();
+
+			Loops:
+				Examples:
+					var todos = [
+						'clean room',
+						'exercise',
+						'learn javascript'
+					]
+
+					var todosLength = todos.length;
+					for (var i=0; i < todosLength; i++) {
+						console.log( todos[i], i );
+					}
+
+					todos.forEach(function(todo, index) {
+						console.log( todo, index );
+					});
+
+
+					var counter = 10;
+					while (counter > 0) {
+						console.log(counter);
+						counter--;
+					}
+					do {
+						console.log(counter);
+						counter--;
+					} while(counter > 0);
+
+
+	Javascript types:
+	1. Number
+	2. String
+	3. Boolean
+	4. Undefined
+	5. Null
+	6. Symbol (new in ECMAScript 6)
+	7. Object
+
+	Javascript comparisons:
+	- \!==
+	- \===
+	- \>=
+	- \<=
+	- \>
+	- \<
+
+	Javascript variables:
+	- var
+	- let (new in ECMAScript 6)
+	- const (new in ECMAScript 6)
+
+	Javascript conditionals:
+	- if
+	- else
+	- else if
+	- ternary operator
+	- switch
+
+	Javascript logical operators:
+	- &&
+	- ||
+	- !
+
+	Javascript functions:
+	- var a = function name() {}
+	- function name() {}
+	- return
+	- () => (new in ECMAScript 6)
+
+	Javascript data structures:
+	- Array
+	- Object
+
+	Javascript looping:
+	- for
+	- while
+	- do
+	- forEach (new in ECMAScript 5)
+
+	Javascript keywords:
+	- break
+	- case
+	- catch
+	- class
+	- const
+	- continue
+	- debugger
+	- default
+	- delete
+	- do
+	- else
+	- export
+	- extends
+	- finally
+	- for
+	- function
+	- if
+	- import
+	- in
+	- instanceof
+	- new
+	- return
+	- super
+	- switch
+	- this
+	- throw
+	- try
+	- typeof
+	- var
+	- void
+	- while
+	- with
+	- yield
+
+
+
+__DOM Manipulation__
+
+	DOM: Document Object Model
+		the dom is created by the browser from the html file loaded, to allow us to modify the html and css
+
+		Javascript Engine: it's the js engine that look at the js file, read it line by line and execute it
+			Chrome: V8 Engine
+			Safari: Nitros
+			Firefox: Spider Monkey
+			Edge: ChakraCore
+
+	DOM Selectors
+		--------------
+		getElementsByTagName
+		getElementsByClassName
+		getElementById
+
+		querySelector
+		querySelectorAll
+
+		getAttribute
+		setAttribute
+
+		##Changing Styles
+		style.{property} //ok
+
+		className //best
+		classList //best
+
+		classList.add
+		classList.remove
+		classList.toggle
+
+		##Bonus
+		innerHTML //DANGEROUS
+
+		parentElement
+		children
+
+		##It is important to CACHE selectors in variables
+
+	DOM EVENTS:
+
+
+	jQuery:
+		created in 2006
+		it made dom manipulation easier and compatible with all browser
+			but jquery has one issue, it made the code very IMPERATIVE
+				imperative means that you had to tell the program eXactly what to do, one by one
+					this may seem like a bad idea but when websites get big and complicated, it creates a huge mess
+						one action is dependent on one action which depend on another action etccc
+							so you lose track of what happening 
+								--> more bugs and so more hours to debug
+									so REACT can be adopt as a solution, as it use DECLARATIVE paradigm
+		http://youmightnotneedjquery.com/
+
+	Developper Fundamentals 5:
+		in some websites, when dom manipulation gets executed, it re-render all the dom tree, 
+			that's bad for performance, so to avoid this, try to optimize dom manipulation
+				otherwise try to minimize the amount of dom manipulation and events
+					alternatively, luckily that's why REACT was created
+
+	Reference websites:
+	*	https://developer.mozilla.org/en-US/docs/web/Events
+	*	https://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
+	*	https://jquery.com/
+	*	http://youmightnotneedjquery.com/
+	*	https://babeljs.io/
+
+
+
+__Advanced Javascript__
+
+Scope:
+	by default, in js, in browser, a function/variable... is in the root scope which is the window object
+		example:
+			var number=-1;
+			window.number // we can access throught the window object
+	
+	when trying to retrieve a variable, 
+		first step is about to check if it exists in the function scope (otherwise named child scope), 
+			if it's not found, we check at parent scope 
+				and by the case, the parent scope can be another function scope or the root scope, 
+					if the variable isn't found in the root scope, then it throws an error.
+
+	var fun = 12;
+	function funky() {
+		var fun = 'hiii suun'; console.log(fun); //prints out 'hiii suun'
+	}
+	function funker() {
+		fun = "Hellllooo";
+	}
+	funky(); //prints out 'hiii suun'
+	funker();
+	console.log(fun); // prints out 'Hellllooo', the 12 value has been overwrite by the 'funker' call
+
+
+Advanced Control Flow:
+	Ternary Operator:
+		condition ? expr1 : expr2
+			otherwise explains, if condition is true, return expr1, if false then return expr2
+	Switch statement:
+		switch (variableToControl) {
+			case value1:
+				//do something
+				break;
+			case value2:
+				//do something
+				break;
+			default:
+				//do something	
+		}		
+
+ES5 & ES6:
+	New JS Variable Keywords:
+		let:
+			with let, every {} means a new scope
+				example:
+					let j = 2;
+					if (true) {
+						let j = "hiii";
+						consoloe.log(j) // --> 'hiii'
+					}
+					consol.log(j) // --> 2
+		const:
+			Exception: you can change the properties of an constant object but you can't reassign the whole object, the variable
+				const obj = {
+					user: 'ali',
+					pwd: '124'
+				}
+				obj.user = 'secret'
+
+		DESTRUCTURING:
+			const obj = {
+				user: 'oumar',
+				pwd: '124',
+				note: 9
+			}
+			const { user, pwd } = obj;
+			let { note } = obj;
+
+		New way to name dynamically properties's name:
+			const name = 'kamado tanjiro'
+			const obj = {
+				[name]: 'ali',
+				['pass'+'word']: '124',
+				[5+4]: 9
+			} //inside the [], we can put any expression that we want
+			
+			const a = 'simon';
+			const b = true;
+			const c = {};
+			const obj = {a, b, c} ======= equivalent to const obj = { a:a, b:b, c:c }
+
+		TEMPLATE STRINGS:
+			const name='Sally';
+			const age=34;
+			const pet='dragon';
+			const greetingBest = `Hello ${name}. You seem to be ${age-10}. What a lovely ${pet} you have.`
+
+		Default Parameters:
+			function greet(name='', age=30, pet='cat') {
+				return `Hello ${name}. You seem to be ${age-10}. What a lovely ${pet} you have.`;
+			}
+
+		SYMBOLS:
+			let s1 = Symbol()
+			let s2 = Symbol('foo');
+			let s3 = Symbol('foo');
+
+			s2 == s3; //false
+			s2 === s3; //false
+
+			symbols are used because they create completely unique type
+				it's mostly used for object properties, it's pretty much the only purpose of symbols,
+					because sometimes you don't want object properties if you have thousand of them to collide and be the same ones 
+			
+			even though s2 and s3 look like the exact same thing, they are quiet UNIQUE
+
+		ARROW FUNCTIONS:
+			const add = (a, b) => a+b;
+			cons sum = (a, b) => {
+				console.log("addition");
+				return a+b;
+			} 
+			//if there's only one expression, we can put all in one line without using the brackets
+			//if there's is more than one expression, you must use {}
+
+			const minus3 = num => num-3;
+			//notice, if the function has ONE parameter, we can delete the brackets around it
+
+ADVANCED FUNCTIONS:
+	CLOSURES:
+		we have two functions, so a parent scope and a child scope
+			so closures are all about that the child scope HAS access to the parent scope variables,
+				but the parent scope has'nt access to the child scope variales
+
+	CURRYING:
+		it's the process of converting a function that takes multiple arguments
+			into a function that takes them one at a time
+
+		example:
+			const multiply = (a, b) => a*b; //normal function
+
+			const curriedMultiply = (a) => (b) => a*b;
+			curriedMultiply(5)(2) //5 will be assign to 'a', 2 to 'b' ===> output: 10
+
+			const multiplyBy3 = curriedMultiply(3);
+			multiplyBy3(4) //4 will be assign to 'b' =====> output: 3*4 gives 12
+
+	COMPOSE:
+		it's the act of putting two function together to form a third function
+			where the output of one function is the input of other
+
+		example:
+			const compose = (f, g) => (a) => f(g(a));
+
+			const sum = (num) => num+1;
+
+			compose(sum, sum)(5); //returns: 7
+
+	AVOIDING FUNCTION SIDE EFFECTS & FUNCTIONAL PURITY
+		so one of the most important thing that you can do as a web developer when creating code,
+			is that idea of avoiding side effects and functional purity
+
+		A Side Effect: that's something a function do, that affect the outside world
+			var a=1;
+			function b() {
+				a=2; //because affecting an external variable, that's a side effect
+				console.log(a) //that's a side effect, because it affect the outside word, here the console
+			}
+
+		Functional Purity:
+			it's a concept where we say in order for us to write really really good programs
+				where we say, we want to avoid side effects and we always return something
+			
+			and by always avoiding side effects and always returning something,
+				we create something called determinism
+			
+			determinism means that no matter the input that we give to a certain function,
+				this function will always return the same value
+
+			determinism is a very important concept and a key's principle in avoiding bugs
+
+
+
+ADVANCED ARRAYS:
+	MAP, FILTER, REDUCE:
+		these three are probably the most important methods that you wil use in your day to day javascript
+			anytime thinking about doing some sort of a loop, most likely you wanna do one of these three
+
+	MAP:
+		map vs forEach:
+			forEach just loops over something and does whatever you define: 
+				it's may have side effect, it's may have nothing inside or it can return anything
+
+			whenever you wanna loop,
+				do a simple loop and take some action on an array, prefer map over forEach
+
+			with map, we must always have a return statement, map act us to write more pure functions
+
+			so 'map' method iterate over an array, return something, 
+				create a new array, don't affect the calling array
+
+
+			const array = [1, 3, 7, 10];
+
+			const forArray = [];
+			array.forEach( num => forArray.push(num) );
+			/* 
+			array.forEach( (num) => { 
+				forArray.push(num*2);
+			}); 
+			*/
+
+			const mapArray = array.map( num => num*2 ); //better way 
+			/* 
+			const mapArray = array.map( (num) => { //long way of doing it with map
+				return num*2;
+			}); 
+			*/
+
+	FILTER:
+		const filterArray = array.filter( num => num>5 ); //we can put any sort of condition at 'num>2'
+		console.log(filterArray); // --> [7, 10]
+ 	REDUCE:
+		acc or accumulator or any name you want,
+			is something where we can store the information that happens in the body of a function
+
+		const reduceArray = array.reduce( (acc, num) => acc+num, 5 ) // 5 will be assigned to 'acc'
+		console.log(reduceArray) // --> 26 due to 5+1+3+7+10
+
+
+ADVANCED OBJECTS:
+	REFERENCE TYPE:
+		number, string, boolean, symbol, null, undefined are what we call PRIMITIVE TYPE
+			it's mean that they are all defined by the programming language, here javascript
+
+		where object are REFERENCE TYPE which is a non-primitive type, then created by us programmer user
+		ARRAY is also REFERENCE TYPE
+
+			var obj1= {v:10}
+			var obj2= obj1 //we are copying the memory address/reference of obj1 in obj2
+			var obj3= {v:10}
+
+			obj1.v = 15
+			console.log(obj2.v) //-> 15, same value as obj1, because obj1&obj2 reference the same memory box
+
+			console.log(obj3.v) //-> 10, obj3 is stored in a memory location different of obj1 mem' location
+
+			//that's why
+			[] === [] //--> false, because each of these array are stored on different memory location
+			{} === {} //same as above
+
+	CONTEXT:
+		context vs scope:
+			scope is all about { } environment, this little universe that we can create with these brackets
+			
+			context tells where we are within the object, context is expressed by 'this'
+			this:
+				is a js keyword
+				tells us what is the object environment where we're in right now
+				just refers to what object it's inside of
+
+	INSTANTIATION (or How to create CLASS in JS):
+		instanciation is when you make a copy of an object and reuse the code
+		it's about making instances or multiple copies of an object
+
+		class Player {
+			constructor(name, type) {
+				this.name = name;
+				this.type = type;
+			}
+			introduce() {
+				console.log(`Hi, it's ${this.name}, the great ${this.type}.`);
+			}
+		}
+		class Wizard extends Player {
+			constructor(name, type, magi) {
+				super(name, type);
+				this.magi = 1000;
+			}
+			play() {
+				console.log(`HAHA SO POWER, HAHA ${this.magi}`);
+			}
+		}
+
+		const wizard1 = new Wizard('Shelly', 'Witcher');
+
+
+PASS BY VALUE vs PASS BY REFERENCE:
+	Primitive Types are IMMUTABLE:
+		it means that we can't really change them, 
+			in order to change them, we need to completly remove them
+
+	Primitive types are always Pass by Value
+	Objects are Pass by Reference
+
+	Pass by Value: simply means we copy value and we put/create that value somewhere else in memory
+		let a = 5;
+		let b = 8;
+		b++;
+		console.log(a); // a==5
+		console.log(b); // b==9
+
+	Pass by Reference: 
+		means we copy memory address, we  are referencing, pointing memory address of another object
+		pros: 
+			it's save memory by pointing just one location 
+				instead of creating multiple version of the object and so loading up the memory
+		cons:
+			we might have this issue where by mistake somebody else changes a property on the referenced obj
+
+		ARRAYS ARE ALSO OBJECTS:
+			var c = [1,2,5,7]
+			var d = c;
+			d.push(7902022)
+			console.log(c) //-> [1,2,5,7, 7902022]
+			console.log(d) //-> [1,2,5,7, 7902022]
+
+	WHAT IF WE WANT A TRUE COPY WITH OBJECTS:
+		With Arrays, we can do:
+			var c = [1,2,5,7];
+			var d = [].concat(c);
+			d.push(7902022);
+			console.log(c); //-> [1,2,5,7]
+			console.log(d); //-> [1,2,5,7, 7902022]
+
+		With Objects:	
+			let obj = {a: 'a', b: 'b', c: 'c'}
+
+			let clone = Object.assign({}, obj)  // Object.assign(targetObj, sourceObj);
+
+			let clone22 = {...obj} // ... is call SPREAD OPERATOR, it's a new feature of js
+
+			obj.c = 5
+			console.log(obj)		// {a: 'a', b: 'b', c: 5}
+			console.log(clone)		// {a: 'a', b: 'b', c: 'c'}
+			console.log(clone22) 	// {a: 'a', b: 'b', c: 'c'}
+
+	Remember, each object gets passed by reference so let's try something
+		let obj = {a: 'a', b: 'b', c: { deep: 'try to clone me' }}
+		let clone = Object.assign({}, obj)
+		let clone22 = {...obj}
+
+		obj.c.deep = 'hahaha'
+		console.log(obj)		// {a: 'a', b: 'b', c: { deep:'hahaha' }}
+		console.log(clone)		// {a: 'a', b: 'b', c: { deep:'hahaha' }}
+		console.log(clone22) 	// {a: 'a', b: 'b', c: { deep:'hahaha' }}
+
+		//These last result is what we call a shallow clone, i.e, it clone the first level
+			//that's shallow cloning, where we can only clone the first layer
+
+		
+		//The solution of this problem is by doing deep cloning throught json:
+		
+		let superCLONE = JSON.parse(JSON.stringify(obj))
+
+		console.log(superCLONE) // {a: 'a', b: 'b', c: { deep: 'try to clone me' }}
+
+			warning however:
+				be careful by doing deep cloning
+					because this can have some performance implications
+						like if the object is extremely deep, a massive object,
+							obviously it's gonna take a long time to clone everything
+								so this method is not used too much
+									there's better way of doing that
+
+
+TYPE COERCION:
+	type coercion just means that when the operand of an operator are different types,
+		one of them will be converted into an equivalent value by the JS engine
+
+	so type coercion simply means the language converting a certain type to another type
+
+	Do all languages have type coercion ?
+		Yes, they do, because we always need to convert types between programs to do things
+			every data type is stored in binary in memory, so yes in all language, there's some sort of type coercion at different levels of the stack
+
+	JS has this especially heavy type coercion because it's dynamically typed
+
+	type coercion happens when == is the operator, it's work for other operator too
+		== compare the two operands and if they have # types, it will try to coerce one into the type of the other
+
+		=== means compare the two values, but don't try to coerce them
+			as good practice, try to always prefer the ===
+
+	We can also have type coercion with the 'if' statement:
+		if (1) {
+			console.log('success')
+		}
+		//-> success 
+		// 1 will be coerce in true and you know the rest
+
+	notice there's a new js feature to avoid type coercion that's more precise than === and it's Object.is:
+		NaN === NaN //--> false
+		Object.is(NaN, NaN) //--> true
+	
+	RESSOURCES ABOUT TYPE COERCION:
+		https://dorey.github.io/JavaScript-Equality-Table/
+		https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness
+		https://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3
+
+
+ES7 (or ES2016 ):
+	ES7 add only two additions to the language:
+		the includes() method:
+			array.includes('something')		OR 		string.includes('hi')
+
+		the exponential/power operator: **
+			const square = x => x**2;
+			const cube = (y) => x**3
+
+
+ES8 (ES2017):
+	STRING PADDING: .padStart(), .padEnd()
+		'Turtle'.padStart(10) //--> "   Turtle"
+			so these method add enough space to make the whole string get the lenght of 10 here by example
+
+		Notes: 
+			string in JS like in python are also Immutable,
+				oh i forgot, all primitive type in JS are immutable, and string is an primitive type in JS
+					so string's method will return a new string like map method do with array
+
+	TRAILING COMMAS IN FUNCTION'S PARAMETERS LISTS AND CALLS:
+		it's only about possibility of adding a comma at the end of a parameters list
+
+		const fun = (a,
+					b,
+					c,
+					) => console.log(a, b, c);
+		fun(1,2,3,)
+
+	CONVERT OBJECT'S PROPERTY TO ARRAY
+		so we can apply map-filter-reduce on it, because map-filter-reduce are applicable only on arrays
+
+		let obj = {
+			user0: 'ali',
+			user1: 'omar'
+		}
+		Object.keys(obj) //--> an array composed by the 'obj' keys (properties name): ['user0', user1']
+		Object.values(obj) //--> the values: ['ali', 'omar']
+		Object.entries(obj) //--> [ ['user0', 'ali'], ['user1', 'omar'] ]
+
+		Object.keys(obj).forEach( value => console.log(value) );
+		Object.values(obj).forEach( value => console.log(value) );
+		Object.entries(obj).forEach( value => console.log(value) );
+
+		Object.keys(obj).map( value => value[1] + value[0].replace('user', '') );
+
+
+ES10 (ES2019):
+	trimStart, trimEnd:
+		userEmail = "    a@a.com"
+		userEmail2 = "b@b.com    "
+
+		userEmail.trimStart() //it's gonna remove the spaces at the beginning
+		userEmail2.trimEnd()  //remove all the spaces at the end of the string
+
+	flat array:
+		const array = [1, [2,3], [4,5]]
+		array.flat(); //--> [1,2,3,4,5] 
+		//array.flat() === array.flat(1), 1 represent the level of flatness to do
+
+		const array = [1, 2, [3, 4, [5]]]
+		array.flat(); 	//--> [1,2,3,4,[5]]
+		array.flat(2); 	//--> [1,2,3,4,5]
+
+		const emoji = [ ['😊', '😊'], '😊', '😊', ['😊', '😊'], [[[[ ':)' ]]], '😊'],  ['😊', '😊'] ]
+		emoji.flat(Infinity)
+
+		const emojiChaos = emoji.flatMap( creature => creature + ':)' )
+		//-> ["😊,😊:)", "😊:)", "😊:)", "😊,😊:)", ":),😊:)", "😊,😊:)"]
+		
+		//flatMap is a flat function of level 1, i believe
+		const emojiChaos = emoji.flatMap( creature => creature )
+		["😊", "😊", "😊", "😊", "😊", "😊", Array(1), "😊", "😊", "😊"]
+
+		const entries = ['bob', 'sally',,,,,,,,,,,'cindy']
+		entries.flat() //--> ['bob', 'sally', 'cindy']
+			//this is where flat is the more interesting, it helps us clean the data
+
+
+	fromEntries: it's an array method that act to transform a list of key-value pair into an object
+		const userProfiles = [ ['commanderTom', 29], ['hans', 25] ]
+		Object.fromEntries(userProfiles) -> {commanderTom: 29, hans: 25}
+	
+	New try and catch block:
+		before es10:
+			try {
+				var + 'hi'
+			} catch (error) {
+				console.log('messed up' + error)
+			} 
+			//so before, we had to pass a parameter to catch, we still can nowadays, but it's not obligatory
+
+		with es6:
+			try {
+				var + 'hi'
+			} catch {
+				console.log('messed up')
+			}
+
+
+ADVANCED LOOPS:
+	for of:
+		by using 'for in', we are doing something call ITERATING
+			iterating simply means we are able to go one by one over each individual items of ITERABLE
+				iterating is able to be done only on what we call ITERABLE
+					these iterables are something that js provides us that says hey you can iterate over it
+						in js you CAN ITERATE OVER ARRAYS & STRINGS 
+
+	for in: 
+		works on properties (objects)
+		by using 'for in', we are doing something call ENUMERATING
+			because properties of an object are what we call enumerable
+				and an object in js is enumerable if it allow us to see its properties
+					otherwise say, that's is we can use the object in the for loop to check them out
+
+	examples
+		const basket = ['apples', 'grapes']
+		for (item of basket) {console.log(item)}
+
+		const detailedBasket = {
+			apples: 5,
+			grapes: 100
+		}
+		for (item in detailedBasket) {console.log(item)} 
+			//'item' will be equivalent to each property's name stringified --> "apples" then "grapes"
+		for (item in detailedBasket) { console.log( detailedBasket[item] ) }
+
+	//WE KNOW THAT for of IS FOR ARRAYS-STRINGS, and for in FOR OBJECTS
+		so what will happens if we give an objects to 'for of' and vice-versa
+
+		for (item of detailedBasket) { console.log(item) }
+			//this will throw an error as 'for of' only process iterable
+			//'for of' doesn't work with objects simply 
+				because the js language needs to provide a property called 'iterable' 
+					and this property is only given by arrays and strings
+
+		for (item in basket) {console.log(item)} 
+			//--> it gives us the indexes of this array : so the output will be 0 then 1
+			// so it's work, it's give us a result
+				because underneath the hood, we think of js arrays like objects
+					we can think of the 'basket' variable as: basket = { 0: 'apples', 1: 'grapes' }
+						so the 'for in' loop is going to enumerate over the properties 0 and 1
+
+		however, there are small exceptions to these rules but 99% of the time, we should consider these.
+
+
+DEBUGGING:
+	it's the act of looking over code, trying to understand what it's doing 
+		and figuring out why it's not acting as expected 
+			(maybe it's not running, maybe you're getting errors 
+				or maybe something that the user does on the website is triggering a weird behaviour...)
+	
+	that's what debugging is, trying to figure out why the program isn't acting the way it does
+
+	so let's see some of the strategies that we can use for debugging:
+
+		//we have this function to debug:
+		const flattened = [[0,1], [2,3], [4,5]].reduce( (a, b) => a.concat(b) , [] );
+
+		//first way of debugging: console.log()
+		const flattened = [[0,1], [2,3], [4,5]].reduce( 
+			(accumulator, nestedArrayGiven) => {
+				
+				console.log('acc', accumulator);
+				console.log('array', nestedArrayGiven);
+
+				return accumulator.concat(nestedArrayGiven);
+			}, [] );
+
+		//second way of debugging: debugger()
+		const flattened = [[0,1], [2,3], [4,5]].reduce( 
+			(accumulator, nestedArrayGiven) => {
+				debugger;
+				return accumulator.concat(nestedArrayGiven);
+			}, [] );
+
+		debugger: 
+			allows us to litteraly go into the function and see what happened step by step 
+				throught the chrome dev tools
+
+
+HOW JAVASCRIPT WORKS
+	How Does Javascript Works ?
+		What's a program ?
+			a program is a set of instructions to say the computer what to do, how to do it...
+			a program has to do some simple things:
+				- allocate memory: 
+					otherwise we wouldn't be able to have variables or even have files on our computer 
+				- parse and execute:
+					which means read and run instructions(commands)
+
+		The JS ENGINE (otherwise named JS INTERPRETER):
+			the js engine like the chrome's v8 engine, reads the javascript that we write
+				and change it into machine executable instructions for the browser
+
+			the engine consists of two parts: the MEMORY HEAP and the CALL STACK
+				
+				the memory heap: 
+					this is were the memory allocation happens obviously
+
+					it has one issue: MEMORY LEAK
+						happens when we have unused memory, just laying around fills up the memory heap
+							that's why you might hear that global variables are bad
+								globale variables are bad because if you don't remember to clean up them after, its continue to fill up the memory
+				
+				the call stack: 
+					this is where the code is read and executed, it tells you where you're in the program
+					how it process:
+						it reads the first line of code, it gets put in the call stack
+							so the js engine says "hey a line of code has been added, let's pop it onto the call stack" and then it runs it and render a result
+								then it says "ok i'm removing this first line of code because i just finished running it, i'm gonna place the second line of code into the call stack and execute the second too and then remove it (pop it)...etc until the last line of code (the last statement to be correct)..."
+						personally i think about the call stack as the cache memory is about the cpu
+
+					let's explain with some code:
+						const one = () => {
+							const two = () => {
+								console.log('4')
+							}
+							two()
+						}
+						one();
+
+						how the call stack process, 
+							firstly the one() function gets add on top of the call stack and gets ran
+							and as we enter into this function, we see that we have another function to run
+								so two() function gets added, goes on top of the call stack
+									as we enter into two(), the console.log get added on the top of the call stack
+										after that the call stack is going to say "ok there is nothing else inside console.log, so i'm going to run it, so it's gonna print out 4"
+										and finally it's gonna remove the console.log from the call stack and then remove the two() and the remove the one()
+
+
+
+			JAVASCRIPT IS A SINGLE THREADED LANGUAGE THAT CAN BE NON-BLOCKING:
+				Single threaded:
+					single threaded means it has one call stack	only (it can only do one thing at a time)
+						and as saw call stack is First In Last Out 
+					
+					other languages that have multiple call stacks are so multi-threaded 
+					js is single threaded because it is quiet more easy to manage than multi-thread
+
+					so yes js is single threaded, what means that only one statement is executed at a time
+
+				Stack Overflow or Overflowing: 
+					stack overflow means when the a stack is overflowing
+						kind of like when we talked about the memory leaks and how the memory heap of a js engine can overflow
+					stack overflow happens so when the call stack just gets bigger and bigger and bigger
+						until it just doesn't have enough space anymore
+					we can create one with recursion:
+						RECURSION means a function that calls itself, like this:
+							function foo() { foo() }
+							foo()
+
+				Synchronous programming:
+					means first staytement gets executed, the the second below...etc
+						so the second won't never be executed until the first gets
+
+				JS IS NON-BLOCKING due to ASYNCHRONOUS:
+					firstly, we can do asynchronous with setTimeout() which is a Window method
+					some examples of when asynchronous happens: when speaking to a database, making network requests, images processing, reading files
+
+					PROCESS EXAMPLE
+						console.log('1')
+						setTimeout( () => console.log('2'), 2000 )
+						console.log('3')
+
+						1. the first console.log goes into the call stack and then gets run and removed
+						2. setTimeout goes into the call stack, 
+							and it triggers, notified the WebAPI that setTimeout has just been called
+								and we removed it from the call stack
+						3. now the WebAPI starts a timer (even it's 0 second), 
+							so it's know that at a certain time it has something to do
+						4. so because the call stack is empty,
+							the js engine now goes to the next line of code, 
+								load it in the call stack, run it and then remove it in the call stack
+						5. then when the time limit is up, 
+							the webAPI add the callback function that is inside the setTimeout function
+								add it to the callback queue, saying that 
+									'hey we have run something that we're ready to run' 
+						6. in the last part of the flow,
+						 	the even loop checks and keeps checking all the time
+						 		if the call stack is empty 
+						 			and that there's nothing running right now in it
+						 		if it's the case, then it's going to check 
+						 			if there's any callback in the callback queue
+				 				so if we found a callback, we move it into the call stack and run it
+				 					and by running the callback we see that we have to console.log
+				 						so we put the console.log in the call stack and run it
+				 							and once it's done it's gonna pop it out of the call stack
+				 								and as we're done with the callback, we removed it too
+				 				and there you go, we're done
+ 
+
+				THE JAVASCRIPT RUNTIME ENVIRONMENT
+					in order for javascript to run, for the js engine to run,
+						we need what we call a javascript runtime environment
+					javascript runtime environment is again part of browser, it is included in the browsers
+
+					js runtime environment has extra things:
+						on top of the engine, it has WEB APIs, CALLBACK QUEUE and EVENT LOOP
+							notice so that Timeout (setTimeout), DOM, AJAX (XMLHttpRequest) 
+								are part of the web API, so it's not technically part of javascript 
+
+				Resume:
+					js is a single threaded language that can be non-blocking
+						
+						it has one call stack so it does one thing at a time
+						
+						in order to not block the single thread,
+							it can be asynchronous with the help of callback functions
+								these gets run in the background through the callback queue 
+									and then the event loop to bring it back into the call stack
+				
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+MODULES:
+	Climbing The Mountain of Modules:
+		when js start to be used for creating websites, what that was used is INLINE SCRIPTS
+			inline means they inline all their javascript code within the html file
+				some issues of that:
+					LACK OF CODE REUSABILITY, 
+					POLLUTION of GLOBAL NAMESPACE that is the window object (RISK OF NAME COLLISION)
+
+
+		the next attempt was EXTERNAL SCRIPT TAGS:
+			three issues:
+				first, if we want to add another html page,
+					we still have to copy and paste this script tags
+				second one is the LACK OF DEPENDENCY RESOLUTION:
+					that is you're responsible to make sure that the scripts are added in proper order
+				third one is POLLUTION of GLOBAL NAMESPACE also
+
+		third attempt is IIFE ( Immediately Invoked Function Execution )
+			//file 1:
+			var myApp = {}
+
+			//file 2:
+			( function() {
+				myApp.add = function(a, b) {
+					return a+b
+				}
+			} )()
+
+			IIFE is all about wrapping a function in brackets () 
+				it's a confusing way to make sure that by using it, 
+					you don't POLLUTE THE GLOBAL NAMESPACE
+				however there is one issue with that:
+					the order of script tag file is still important (LACK OF DEPENDENCY RESOLUTION)
+				
+				NB: jQuery use IIFE: allowing us to use $
+
+		
+		so then we have BOWSERIFY
+			what did browserify do ?
+				it actually used the CommonJS library which allow us to use a certain syntax
+				
+				---CommonJS+Browserify---
+				//file1 , assuming it is named add.js
+				module.exports = function add(a, b) {
+					return a+b;
+				}
+
+				//file2
+				var sum = require("./add") //add from the file name add.js
+
+
+			so browserify use this CommonJS syntax but browserify is at first a MODULE BUNDLER
+				MODULE BUNDLER significance
+					it means that it runs before you put the website online
+					what that means is that it read to all the js files, read through all the syntax
+						and bundles everything into a single file usually called bundle.js
+
+
+		before getting to last part, notice that if we have had all of the previous problems,
+			it's because javascript didn't have what we call a module system built-in to the language 
+		you can think of modules as building blocks, as different pieces of code
+			each piece is really really good at doing one thing
+		so because js didn't have this module system, 
+			it's the reason we have so many way of importing and exporting modules
+				there is even quiet a few more that we have'nt mentioned here
+
+		
+		however things have recently with the introduction of ES6
+			----ES6 & WEBPACK2----
+			//file 1:
+				export const add = (a, b) => a+b; //use this syntax if we think to export many functions
+
+				export default function add(a, b) {
+					return a+b;
+				} //use the export default if you will only import one thing
+
+			//file 2:
+				import { add } fron './add'; //if it was simple 'export' that has been done
+
+				import add from './add'; //use this syntax if it's export default that has been done
+
+		because it's a new feature, browsers aren't support everything yet,
+			so we're still waiting on browser to implement them
+
+		so that's where webpack come about
+			it's a module bundler,
+				and like browserify so, it traverses the dependency tree (the import and export tags)
+					and bundles them into a single file or even multiple files based on your needs
+						so with Webpack we can actually use ES6 on all browsers
+
+			webpack work simply with a config file:
+				//webpack
+				module.exports = {
+					entry: './app/main.js',
+					output: {
+						path: './dist',
+						filename: 'bundle.js'
+					}
+				}
+
+	Ressources about modules:
+		https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/
+		https://medium.com/@sungyeol.choi/javascript-module-module-loader-module-bundler-es6-module-confused-yet-6343510e7bde
+
+		

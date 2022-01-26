@@ -1,0 +1,27 @@
+__Bootstrap 4, Templates, And Building Your Startup Landing Page__
+
+
+Building Your Startup Landing Page
+	The Responsive Meta Tag:
+		to ensure proper rendering and touch zooming for all devices,
+			add the responsive viewport meta tag to <head>:
+				<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit-no">
+	
+	Perfect Full Page Background Image Code:
+		https://css-tricks.com/perfect-full-page-background-image/
+
+	Vertical Alignment (don't use this nowadays), use at place Flex(box) integrated in Bootstrap
+
+	App for creating users list:
+	*	https://mailchimp.com
+
+	Dev Fundamentals 4:
+	Website with animation examples:
+	*	https://daneden.github.io/animate.css
+
+	Website for patterns:
+	*	https://www.creative-tim.com/bootstrap-themes/ui-kit?direction=asc&sort=price
+	*	http://mashup-template.com/templates.html
+	*	https://startbootstrap.com/template-categories/all/
+	*	https://mdbootstrap.com/freebies/
+	*	https://www.creative-tim.com/

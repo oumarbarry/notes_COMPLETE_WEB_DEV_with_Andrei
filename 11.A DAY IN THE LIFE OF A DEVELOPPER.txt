@@ -1,0 +1,36 @@
+9:00am:
+	at your office, you check the TRELLO board
+		to see what is done, what to do like maybe fixing braching conflict...
+
+10:00am:
+	the STANDS UP meeting with the SCRUM MANAGER, the PRODUCT OWNER, and the concerned team
+		this meeting is to check what have been done yesterday, so act what we're gonna do today
+			or maybe if you're blocking on something or you're having issue, you can ask some team members
+
+10:30am:
+	back to your desktop, working on bugs or new features according to the trello board
+		like updating the read me file
+
+12:00am: lunch
+
+14:00pm:
+	after working on the read me file, you make a PR (pull request)
+		and then usually tend to check, review others PR and if you're authorize merge these PR
+
+15:00pm:
+	some companies will also make QA (Quality Analysis),
+		QA is about essentially making sure that the changes 
+			that have been implemented doesn't affect our web app, 
+				check if it still works on phone, on all browsers
+					so it's all about making sure that our features or bugs are fixed
+
+16:00pm:
+	if everything passed: if the QA is goog, if our PR gets APPROVED by our team --> :)
+		so we go to trello to update task from doing to done
+
+
+WHETER YOU ARE BUILDING A PRODUCT YOURSELF OR YOU'RE THE ONLY OWNER,
+	you still had to use these techniques to just keep yourself accountable and making sure that tasks are getting done
+		BECAUSE BEING A WEB DEVELOPPER 
+			IS ALL ABOUT BREAKING UP BIG TASKS LIKE BUILDING NETFLIX INTO SMALL MANAGEABLE CHUNKS
+				and each day you're just working one chunk at a time

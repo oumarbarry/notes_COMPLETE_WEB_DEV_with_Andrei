@@ -1,0 +1,69 @@
+HTML5	
+	Reference websites:
+		https://www.w3schools.com/
+		https://developer.mozilla.org/en-US/
+		https://stackoverflow.com/
+	
+	Install a text editor (Select one):
+		https://www.sublimetext.com/
+		https://atom.io/
+		https://code.visualstudio.com/
+
+	Developper Fundamentals 2:
+		There's so much browser and so much screens size, 
+			so it's all about to make website render correctly on these
+	Developper Fundamentals 3:
+		Train your problem solving skills (and Googling skills)
+
+	HTML Tags:
+		*	`<html>`
+		*	`<head>`
+		*	`<title>`
+		*	`<body>`
+		*	headings (`h1`, `h2`, `h3`, `h4`, `h5`, `h6`)
+		*	paragraph `<p>`
+		*	bold `<strong>`, italic `<em>`
+		*	ordered list `<ol>`, unordered list `<ul>`, list item`<li>`
+		*	break `<br>`, horizontal rule `<hr>`
+		*	image `<img>` and attributes: `src`, `width`, `height`
+		*	anchor `<a href="">`
+
+		<p> is a TAG 
+			but <p>HELLO</p> is an HTML element, so tag+content=element
+		
+		some tags have evolved, initially website, html was for pc/mac, 
+			nowadays it's also for phone/tablets/screen readers that for some don't understand <b> or <i>
+				so tag like <strong> came to replace <b>, <em> to replace <i>
+
+		Self Closing Tags:
+			<br />: this syntax with the slash comes from older version of html, the xhtml
+			<br>: it's this syntax that is used nowadays (from latest version of html, html5)
+
+		Anchor Tag
+
+		Relative vs Absolute Path
+
+Advanced HTML5
+	Tags:
+		`<form>`
+			`method`, `action`
+		`<input>`:
+			`type`= `"text"`, `"submit"`, `"reset"`, `"email"`, `"date"`, `"radio"`, `"password"`
+			`required`, `value`, `name`, `min`
+		dropdown `<select>`
+			option `<option>`
+		comment `<!-- -->`
+		`<div>` and `<span>`
+
+	Semantic Elements
+		`<header>`
+		`<nav>`
+		`<main>`
+		`<footer>`
+
+	Topics:
+		Chrome View Source
+
+	Resources:
+	*	https://learn.freecodecamp.org/responsive-web-design/basic-html-and-html5
+	*	https://waitbutwhy.com/

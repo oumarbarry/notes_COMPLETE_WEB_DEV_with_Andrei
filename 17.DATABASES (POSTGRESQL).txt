@@ -1,0 +1,157 @@
+DATABASES:
+	a database is a collection of data
+		data than can numbers, dates, password hashes...
+	databases allow us to organize this data in a way that is useful to us 
+		and it make data management easy
+
+	DBMS is a collection of programs which allows us to access databases and work with data
+		so it's a tool or piece of software that allows us to communicate with the database
+			so it allow us to insert, update, delete and look up whatever is in the database
+
+	Relational Databases, schema-first-defined, SQL
+	Non Relational Databases, schema-defined-as-going, NoSQL
+
+	FRONTEND -(http/s)- BACKEND -(sql/nosql)- DATABASES
+		Frontend communicate with Backend through HTTP/S
+		Backend communicate with Databases through SQL/NoSQL
+
+SQL Create Table:
+	CREATE TABLE table_name(column1 datatype, column2 datatype, column3 datatype);
+	CREATE TABLE users(name text, age smallint, birthday date);
+
+		NB: inside the psql console, always end query with a semi-colon (;) otherwise it won't run it
+
+	\d : to describe/show/list out all the databases
+	\q : to exit psql console
+
+SQL Insert Into + Select:
+	INSERT INTO table_name (column1, column2, column3) VALUES (value1, value2, value3);
+	INSERT INTO users (name, age, birthday) VALUES ('Oumar', 22, '1998-02-12');
+	
+	SELECT * FROM users;
+
+SQL Alter Table + Update:
+	ALTER TABLE table_name ADD column datatype;
+	ALTER TABLE users ADD score smallint;	
+
+	UPDATE table_name SET some_column = some_value WHERE some_column = some_value
+	UPDATE users SET score=50 WHERE name='Andrei'
+	UPDATE users SET score=100 WHERE name='Sally' OR name='John'
+
+SQL Conditional Selections:
+	SELECT * FROM users WHERE name LIKE 'A%';  //notice that the LIKE condition is CASE SENSITIVE
+	SELECT * FROM users WHERE name LIKE 'a%';
+	SELECT * FROM users WHERE name LIKE '%y';
+
+	SELECT * FROM users ORDER BY score DESC;
+	SELECT * FROM users ORDER BY score ASC;
+
+SQL Functions:
+	SELECT AVG(score) FROM users;
+	SELECT SUM(age) FROM users;
+	SELECT COUNT(name) FROM users;
+
+Joining Tables:
+	CREATE TABLE login (
+		id SERIAL NOT NULL PRIMARY KEY,
+		secret VARCHAR (100) NOT NULL, 
+		name TEXT UNIQUE NOT NULL
+	);
+
+	INSERT INTO login (secret, name) VALUES ('ABC', 'Andrei');
+
+	SELECT * FROM users JOIN login ON users.name = login.name;
+
+SQL Delete From + Drop Table:
+	DELETE FROM users WHERE name='Sally';
+
+	DROP TABLE users;
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Install PostgreSQL:
+	http://www.psequel.com/
+
+	```zsh
+	brew update
+	brew doctor
+	brew install postgresql
+	brew services start postgresql
+	brew services stop postgresql
+	createdb ‘test’
+	psql ‘test’
+	```
+
+Create database:
+	create database database_name;
+
+Show all datatables: \l
+
+Create a user: 
+	create user oumar with password ‘barry’;
+
+Delete a database:
+	drop database database_name;
+
+Connect to a database: \c database_name;
+
+Create a schema: create schema friends;
+
+Create a table:
+	create table Friends.test( firstname CHAR(15), lastname CHAR(20));
+
+	create table Friends.login(id serial not null primary key, secret varchar (100) not null, name text unique not null, entries bigint default 0, joined timestamp not null);
+
+Show all information of a table: select * from friends.test;
+
+Describe database: \d friends.test
+
+Insert data: 
+	insert into friends.test values( ‘Mike’, ‘Smith’);
+	insert into friends.test (firstname, lastname )values( ‘Sally’, ‘Jones’);
+
+Add a column to an existing table:
+	alter table Friends.test add age smallint;
+
+Update data from the table:
+	update friends.test set age = 25 where firstname= ‘Mike’;
+
+Delete data from the table:
+	delete from friends.test where firstname = ‘Mike’;
+
+Delete column from a table:
+	alter table friends.test drop column age;
+
+Delete a table:  drop table friends.test;
+
+Functions: select avg(age) from friends.test;
+
+Join tables:
+	select * from friends.test join friends.login on friends.test.firstname = friends.login.name;
+
+Exit:  \q
+
+List all users in postgresSQL database server:	\du
+
+List all tables in a schema:  \d+ schema_name.*
+
+List all tables in a database:  \dt *.*
+
+List a table in a schema:  \d+ schema_name . table_name
+
+Show description of a table, columns, type, modifications, etc: \d+ table_name
+
+Create a backup of a database:
+	pg_dump -h localhost -U postgres database_name > database_name.sql
+
+Restore a database: 
+	1. Create a new database where the restore file is going to be placed
+	2. psql -U postgres -d new_database_name -f respaldo.sql
+	*Note:  it is important to create the restore in the same root where the database copy is saved.
+
+Enter to postgres with a user different to postgres:
+	psql -h localhost -d postgres -U usuario
+
+Enter to a database with a different user:
+	psql -h localhost -d nombre_base -U nombre_usuario

@@ -1,0 +1,27 @@
+HISTORY OF THE WEB:
+	WWWW vs Internet:
+		Maps that explain the Internet: https://www.vox.com/a/internet-maps
+		
+		Tim Berners Lee, the founder of the Web in 1989/1990
+			the web is a decentralized application of the internet
+		Tim is the first web developper
+			he created the first browser, the first server, also the html
+		He so created the first website in 1991:
+			First Webpage in the world: http://info.cern.ch/hypertext/WWW/TheProject.html
+
+	HTML, CSS, JS:
+		HTML: texts and links
+		CSS: styles, layouts
+		JS: interactivity
+
+
+	Web Development History:
+		Before:
+			HTML, CSS, JS+JQUERY, (APACHE), PHP, MYSQL
+		Nowadays:
+			HTML5, CSS3, JS+REACT, (NGINX/APACHE), NODE+EXPRESS, POSTGRESQL/MONGODB
+
+Optional Videos:
+	https://www.youtube.com/watch?v=3QhU9jd03a0&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo&index=29
+	https://www.youtube.com/watch?v=AEaKrq3SpW8&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo&index=30
+	https://www.youtube.com/watch?v=guvsH5OFizE&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo&index=31

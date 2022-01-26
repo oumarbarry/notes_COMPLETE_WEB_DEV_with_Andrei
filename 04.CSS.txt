@@ -1,0 +1,162 @@
+CSS:
+	Reference websites:
+		Generalities:
+			https://css-tricks.com/ --> one of the best css reference
+			https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+			https://unsplash.com/  --> for tons of high quality and free images
+			https://www.supremo.co.uk/typeterms/ --> just a website, nicely designed with css
+	
+		Website for color check:
+			http://paletton.com/ --> wondeeeerful tool for getting color palette 
+			https://coolors.co/
+		
+		Website for fonts download: https://fonts.google.com/
+
+		Exercises: https://flukeout.github.io/
+
+	******************************************************************************************
+	Syntax:
+		selector {
+			property: value;
+		}
+
+	******************************************************************************************
+	How to:
+		External:
+			<link rel="stylesheet type="text/css" href="style.css">
+		Internal:
+			<style>
+				body {
+					background-color: purple;
+				}
+			</style>
+		Inline:
+			<header style="background-color: green;">
+
+	Tools:	Chrome Inspector
+
+	******************************************************************************************
+	Properties:
+	*	text-align
+	*	border
+	*	background
+	*	list-style
+	*	cursor
+	*	color: html, hex, rgb or rgba
+
+	Selectors:
+		`.class`
+		`#id`
+		`*` (all elements)
+		`element`
+		`element, element`
+		`elemnt1 elemnt2`: 
+			apply style on all e2 that are inside e1, e2 don't have to be direct child of e1
+		`element1 > element2`: 
+			same as before but e2 must be direct child of e1
+		`element1 + element2`: 
+			means selecting any element2 that come exactly after the element1 in htmlcode
+		
+		`:hover`
+		
+		`:last-child`: 
+			apply style on the last element of a group of item
+		`:first-child`: 
+			apply style on the first element of a group of item
+		`!important` (not recommended) :
+				it's override, break the rules of cascading styles sheets
+				p { color: pink !important;}
+
+		Reference for more:
+			*https://www.w3schools.com/cssref/css_selectors.asp
+			*https://css-tricks.com/almanac/
+
+		Cascading Rules (What seletors win out in the cascade depends on):
+			-Specificity:
+				https://developer.mozilla.org/es/docs/Learn/CSS/Introduction_to_CSS/Cascada_y_herencia
+				https://specificity.keegan.st/
+			-Importance
+			-Source Order
+
+	******************************************************************************************
+	Text Properties
+	*	`text-decoration` : underline, line-through
+	*	`text-transform` : uppercase
+	*	`line-height` : 50px / 1.5
+	*	`font-style`
+	*	`font-weight`
+	*	`font-size`
+	*	`font-family`: Georgia / "Times New Roman"
+
+		Linking fonts and external stylesheets:
+			<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+			element { font-family: 'Poiret One', cursive }
+			 
+	******************************************************************************************
+	Basic Layout Properties:
+		`float` : use essentially to layout text around image
+		`clear` : use to escape from the `float` effect
+	
+	Box Model
+	*	`margin`
+	*	`border`
+	*	`padding`
+	*	`width` and `height`
+
+	Sizes:
+		`px`
+		`em` : give size relative to the parent size
+	 	`rem` : give size relative to the root element, i.e the html tag
+
+
+**********************************************************************************************
+**********************************************************************************************
+__Advanced CSS__
+
+	Critical Render Path: 
+		critical cender path is the path that a website takes to display something to the user
+		
+		if link to the html code, the browser won't be able to render the webpage, until it receives the css
+			so to optimize website, speed up the css transfer, one best solution is to minify it
+		
+		the text won't be display until the font get loaded
+			the browser might not show up the text because the text is looking for the font file
+
+	Flexbox
+	*	`display: flex`
+	*	`flex-direction`
+	*	`flex-wrap`
+	*	`flex-flow`
+	*	`justify-content`
+	*	`align-items`
+	*	`align-content`
+	*	`order`
+	*	`flex`: `flex-grow`, `flex-shrink` and `flex-basis`
+	*	`align-self`
+
+	Exercises:	http://flexboxfroggy.com/
+
+	Responsive UI: a priority nowadays when building websites
+
+	CSS3 New Properties
+	*	`transition`
+	*	`transform`
+	*	`box-shadow`
+
+	If a new property is not yet fully supported, add these prefix:
+		-moz- for Mozilla : -moz-box-shadow
+		-o- for Opera : -o-box-shadow
+		-webkit- for Safari and Chrome : -webkit-box-shadow
+		-ms- for Microsoft Edge and IE : -ms-box-shadow
+
+	Reference websites:
+	*	https://caniuse.com/
+	*	https://www.w3schools.com/cssref/css3_browsersupport.asp
+	*	http://shouldiprefix.com/
+	*	https://robots.thoughtbot.com/transitions-and-transforms
+	*	https://darekkay.com/dev/flexbox-cheatsheet.html
+
+	Tools
+	*	Chrome Toggle Device
+	*	https://codepen.io/

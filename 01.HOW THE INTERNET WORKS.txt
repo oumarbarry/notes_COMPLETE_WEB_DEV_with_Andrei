@@ -1,0 +1,44 @@
+Plan
+	Web Foundations
+	HTML5, CSS3
+	Bootstrap, CSS Grid
+	Careers of Web Dev.
+	JS
+	Developer Environment
+	Git/GitHub
+	NPM/NPM Scripts
+	React.js
+	Node.js
+	Databases
+	Production
+
+
+How The Internet Works
+	Browsing the Web
+		is all about to send a request to dns annuary to translate the url via our internet service provider
+			so we receive the website ip address
+				then the browser send another request to that ip address
+					and receive back the html,css,js file and render them
+	Tools:
+		Chrome Developer Tools
+	
+	The Internet Backbone:
+		Submarine Cable Map: https://www.submarinecablemap.com/
+		From the home wifi provided by the router,
+			router that is connected to by the modem by a cable (now the modem and router are one in the same box)
+				modem that is connected to the ISP via signal towers
+					ISP that is connected to other ISP, to the world via the Internet Backbone
+						the Internet Backbone is all these connected submarine cable all around the world
+		
+	Traceroute (Windows: tracert)
+
+	Developer Fundamentals 1:
+		First level to optimize website:
+			Location of Server: more the server is close to the client, faster the communication will be
+			How many trips: the less trips we have between client-server, the faster we will be able to get files
+			Size of File: it's about to optimize file to get the smallest file size
+
+	What Does a Web Developper Do ?
+		Front End Developper: HTML, CSS, JS, REACT
+		Back End Developper: Node.js, Express.js, Databases
+		Full Stack Developper: Front + Back

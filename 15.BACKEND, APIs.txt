@@ -1,0 +1,50 @@
+BACKEND
+	the backend dev is the person that is in charge of working with servers and databases
+		and a server is responsible for whatever you get in the browser
+	the main goal of backend is to make sure that when a HTTP request is made from the frontend,
+		make sure that we get a response back as fast as possible with correct data
+	so backend development is all about making sure that we return correct ressources to the front
+
+	before backend devs used mostly the LAMP stack configuration:
+		with linux as OS,
+			only apache for serving files,
+				php for the logic of the website
+					and mysql for the databases
+		this config is mostly for basic websites
+
+	the nowadays config is named APPLICATION SERVER:
+		the server runs mostly on Linux, 
+			with APACHE or NGINX but on top of apache we have things like 
+				Node Server for NODE.JS or Gunicorn for DJANGO 
+					that manage ROUTING of URLS
+			and for databases, we have mostly PostgreSQL, MongoDB...
+
+		this is the config for nowadays what we call WEB APPLICATION i.e complex websites
+
+		but for larger website like facebook, twitter, what will change in this config is the scale
+			so for these we will have:
+				MULTIPLE DATABASE
+					(the database will be replicated in many other computers),
+				
+				MULTIPLE APPLICATION SERVER
+					(i.e a copy of the website logic on different computers)
+				
+				and A LOAD BALANCER 
+					similarly to apache/nginx, it listens HTTP requests and check 
+						if an application server is busy,
+							it transfers the request to another server
+								so in resume it balances the load of server
+
+
+APIs: 
+	it's just a tool for data communication according to certain rules
+		some apis are public (free), some are private, someones need an authentication key etcc
+		apis send back data in xml format, and mostly JSON format
+
+	RESSOURCES:	https://public-apis.xyz
+
+		https://stripe.com/docs/api
+		https://www.twilio.com/docs/api/messaging/send-messages
+		https://apilist.fun
+		https://play.elevatorsaga.com/
+		JSONPlaceHolder, SWAPI, RoboHash, GithubAPI, FacebookAPI, GoogleAPI ...

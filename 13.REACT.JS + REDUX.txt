@@ -1,0 +1,245 @@
+Introduction:
+	Before React, we had jQuery, but jQuery was very imperative
+		which means that writing code with it was like mixing ingredients sequentially:
+			'if this happens then do this and then do that, etc etc', it create a lot of inconsistencies
+				as a website gets more and more complex, it becomes very hard to scale(which means it becomes very hard for teams of developpers to manage things)
+	Nowadays we have React, that solves all these problems:
+		it manages to make our websites, the dom change in predicatable ways that is easy to scale & manage
+			and the beauty of React is that because it's only care about VIEW
+				it can be used for building mobile apps, virtual reality apps, desktop apps
+
+	Some React Principles:
+		one is the idea of thinking in terms of COMPONENTS
+		
+		second is the idea of ONE WAY DATA FLOW always from top to bottom and never the other way around
+		
+		next thing is the idea of VIRTUAL DOM
+			we learned that one of the most important things as a developer is TO MINIMIZE THE AMOUNT OF DOM MANIPULATION THAT WE DO, because web browsers have to work really really hard to achieve that and so it reduce the performance of web page + increase bugs
+
+			the Virtual Dom is just a javascript object that describe the current state of the website
+				we just give that object to a react bot (precisely the ReactDOM) that manage the DOM for us
+
+			so again the virtual dom is just a copy of the dom that react takes as input in order to manipule the dom for us
+
+	to finish off this introduction, notice that React has a great community and GREAT ECO-SYSTEM (babel, webpack, node, npm, react-router...etc)			
+
+
+create-react-app:
+	it's a tool that allows us to right away create a react app with all our files already put in to place
+		it's a package that creates a starter project that contains react, react-dom and react-scripts
+			and through REACT-SCRIPTS, it implicitly & automatically sets up webpack & babel for us
+
+		package.json:
+			the package.json file exists because this way i can copy it and give it to another developer and this dev knows exactly what version of libraries and packages he should use in order to make sure the given project runs
+		package-lock.json:
+			this a file automatically generate by package.json
+				package-lock.json makes sure that the version numbers of the dependencies of our project are locked in, so if you give the same project to anybody else around the world, we can be sure that the versions that they will install, will be correct, will be the same
+		the scr, the public folders...
+
+create-react-app v2:
+	https://reactjs.org/blog/2018/10/01/create-react-app-v2.html
+
+latest update of create-react-app: 
+	https://create-react-app.dev/docs/getting-started
+	https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b
+
+CAUTION/ADVICE:
+	it's good to update libraries 
+		but it's not necessarily always the best solution 
+			because you might have these rare cases when bugs emerge
+	that's something you'll just have to get used to and adapt as you get more and more experience
+
+
+LET'S BUILD ROBO-FRIENDS:
+	RESSOURCES:
+		*	http://www.cufonfonts.com/en
+		*	https://reactjs.org/docs/react-component.html
+		*	https://jsonplaceholder.typicode.com/
+		*	http://atomicdesign.bradfrost.com/
+		*	https://robohash.org
+
+		npx create-react-app “name”
+		npm start
+		npm install tachyons 
+			//from tachyons.io, it's a lightweight css library that allows us similarly to bootstrap to have predefined class names that we can add to components
+
+	JSX:	 	
+ 		so 2 questions:
+ 		first, what's about the html,css,js separation of concerns ?
+ 			react has the idea of components 
+ 				and that it's better to have functionality and styles per component,
+ 					so that each component is its own separate universe
+ 			so the idea of separate of concerns with react is that components,
+ 				well they are concerned only about themselves
+
+ 		second, what is jsx:
+ 			it's a part of React that allows us to write html like syntax in our javascript
+ 				react uses jsx to create the virtual dom
+ 					it looks at this virtual dom and the real dom, and when it triggered a changement, it changes the real dom based on the virtual, it changes only what's needed to be changed, that's why react is so fast
+
+	props: 
+	 	it's simply like html attribute(attrName=attrValue) 
+	 		declared in a Component JSX TAG that can be accessible:
+	 			inside the class-based component as a property-object
+	 			or inside a function-based component as a parameter-object
+
+	NB:
+	 	remember that when per example you're doing a loop on an array or iterator that will generate another array of jsx component, you must deliver a unique key to each of them, in order to help react to work more fast
+	 		so the key jsx tag prop should have a value that doesnt change, something like an id
+
+	STATE:
+	 	in react, it's simply an OBJECT that describes your application
+	 	in react again, a parent component feeds state into child component as props
+
+	Some rules with react:
+	 	first, is that ANYTIME YOU CREATE YOUR OWN METHODS ON A COMPONENT, 
+	 		USE THE ARROW FUNCTION SYNTAX (combine with FUNCTION EXPRESSION syntax) 
+	 			TO AVOID ERROR OF 'this' BINDING/assignment
+	 				https://reactjs.org/docs/handling-events.html
+	 			but for react built-in method like render, we don't need to do this
+
+	 	second, is to always use 'this.setState()' in order to update state 
+
+	REACT LIFECYCLE METHODS:
+	 	these are called lifecycle hooks as they get run every time a component does something 
+	 		(mounting, updating, unmounting)
+	 			https://reactjs.org/docs/react-component.html //for more infos
+
+		componentDidMount() and fetch().then()
+
+	we have seen SELF-CLOSING JSX TAG, it's time to see WRAPPED JSX TAG:
+		wrapped jsx tag introduce the CHILDREN property that can be access through props.children
+			children only represents elements that are inside the wrapped tag
+
+	THE POWER OF REACT:
+		with given function and state by us, as soon as state changes, 
+			react trickles down the information as props to all relied children component 
+				and magically creates our view for us
+
+		that's why react is so powerful, 
+			it's a view layer that takes care of manipulating the dom 
+				and by only telling it what is the state, what are the functions to apply to the state,
+					well it takes care of the rest and optimizes to make sure that everything work fast
+
+	KEEPING YOUR PROJECTS UPDATE:
+		when cloned and run: npm install, 
+			if you encounter vulnerabilies, critical issues, then run: npm audit fix
+				some of them may required manual review, use:
+					npm audit --> to list out the issues and try to figured out how to solve them manually
+					or npm audit fix --force  --> to force the installation of breaking changes
+			
+			another command is: npm update
+				it looks at dependencies semver in package.json 
+					and search what's the highest version it can upgrade to
+						and as soon it encounters ^, it knows that it can upgrade 
+							to the highest version of the minor release
+
+		in conclusion, notice that the easiest way 
+			to keep your projects update and secure 
+				is to simply update the package.json file
+		
+		but that the more libraries/dependencies you have, 
+			the more maintenance you will have to do, to make sure 
+				that every time you update a library it doesn't break your app
+
+	ERROR BOUNDARY IN REACT: require react16 or higher
+
+	DEPLOYING A REACT APP ON GITHUB:
+		https://create-react-app.dev/docs/deployment#github-pages-https-pagesgithubcom
+
+
+	STATE MANAGEMENTS:
+		as our app growth, we ends up with more and more components, more and more state, 
+			and so  keepings track of all these state will become more and more hard too
+		
+		redux solve this problems for us with state management, so it comes up with a new concept
+			'what if we remove all the state from component, what if we only have props in component 
+				and then the state we keep it in a store'
+					and a store is simply just the this.state that react had but in one massive object
+						so we have one single object that describes how our app should look
+							and all we do is to pass out that state to whichever component needs it as props
+								and any update that happens go to the state, it gets modified and then we pass that information to the component
+		redux is a useful library that makes state management easier
+
+	WHY REDUX:
+		why using redux, 3 reasons, because, redux is:
+			- GOOD FOR MANAGING LARGE STATE
+				so redux is a library that we would wanna use 
+					as our apps get bigger and bigger, and have larger and larger state
+				redux solves the problems of what happens 
+					when react apps get really really big 
+						and using just this.state doesn't make sense anymore
+
+			- USEFUL FOR SHARING DATA BETWEEN CONTAINERS
+				containers also called smart components,
+					are in react paradigm, those that manage a state
+						(the other components are called pure components, because they only receive props and render always the same output base on this props, they don't manage any state)
+				
+				and so, in react, between a parent and a child component, we pass data through props 
+					but when we need to share data between same level components, 
+						we mostly had to move the state up one layer, 
+							so that we have a parent that can share the state between the two
+
+			- finally, redux has PREDICTABLE STATE MANAGEMENT using the 3 principles
+				1. the first principle is the idea of SINGLE SOURCE OF TRUTH:
+					it's a fancy way of saying that we have one single big object that describes the app
+				2. STATE IS READ ONLY, is immutable
+					the state object that we will create with redux will never get modified and instead we would create a new state after each action taken by the user
+				3. CHANGES are made only USING PURE FUNCTIONS
+
+		Using these principles, redux introduces new world in our vocabulary:
+			ACTION --> REDUCER --> STORE --> MAKE CHANGES
+			ACTION:
+				an action is something that the user does, such as clicking on a button or a dropdown menu
+				and this action is made, it goes through a reducer
+			REDUCER:
+				a reducer is simply a pure function that receives as input the action and create as output the store
+			STORE:
+				the store is the entire state of the app in redux
+
+			so as an action goes through the reducer, the store gets updated and react because it notices this state variation, make changes to the view layer
+
+			question, why we do all this process ? 
+				can't we just have action 
+					and when an action happens we just make changes ? that's how JQUERY used to work
+				if you have tons of actions, see that the more and more actions we have, the more changes we have to must and those changes might trigger other actions which trigger other changes and so on and so forth, complications on complications
+
+				well with redux, we makes sure that all the actions go/flow through one reducer and through this function, because it's pure, it always returns the same state based on the action and updates the store, and the store now which represent what our app should look like, makes changes
+
+			redux use an architectural pattern called FLUX PATTERN
+				architecture in software is used as a way to make sure 
+					that we are able to solve problems in an organised and logical sense
+
+			one last thing, you could have redux with the big state, 
+				but also still keep a little bit of react state in a component, 
+					so you can still use them together
+
+	Installing Redux:
+		npm install redux
+			it's this package that help us to create the redux store object and has some helper functions
+
+		npm install react-redux
+			react-redux helps connecting the containers and only the containers (not the pure components) to the store
+
+		npm install redux-logger
+		npm install redux-thunk
+
+	REDUX ACTIONS and REDUCERS
+	REDUX STORE and PROVIDER
+	REDUX CONNECT()
+
+	BEST POPULAR REACT TOOLS:
+	*	https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en
+	*	https://reacttraining.com/react-router/
+	*	https://ramdajs.com/
+	*	https://lodash.com
+	*	https://glamorous.rocks
+	*	https://www.styled-components.com
+	*	https://github.com/css-modules/css-modules
+	*	https://www.gatsbyjs.org
+	*	https://zeit.co/blog/next5
+	*	www.material-ui.com/#/components/app-bar
+	*	https://react.semantic-ui.com/elements/button
+	*	https://github.com/reactjs/reselect
+	*	https://redux-saga.js.org
+	*	https://facebook.github.io/immutable-js/

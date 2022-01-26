@@ -1,0 +1,166 @@
+HTTP/ HTTPS:
+	HTTP, the client-server web protocol
+		the web browser is a http client that sends requests to servers
+			we can send data within these requests throughts base urls, query strings or body form data
+			GET, POST, PUT, DELETE are the usual request verbs/syntax
+		the server sends back a response that contains a status code + data
+	HTTPS uses TLS (transport layer security) or his predecessor SSL (secure socket layer)
+		to encrypt the data that we send to servers
+
+JSON:
+	when exchange data between browser and server, data can only be text
+	so JSON (JavaScript Object Notation) is a standart text syntax for exchanging data
+
+		var myJson = JSON.stringify(userData) //myJson: {'name': 'john', 'age':'30'}
+		var obj = JSON.parse(myJson)
+		
+AJAX:
+	allow us update some part of a website without reloading the entire page by sending request to server
+		in resume it allows us to grab or send data to server without reloading the entire page
+
+	the old way: xhr
+		var request = new XMLHttpRequest()
+		request.open('GET', 'url', true)
+		request.onload = () => {
+			if(request.status>=200 && request.status<400) {
+				let data = JSON.parse(request.responseText)
+			} else {
+				//when we trigger a 404 or 500 error, any bad response status
+			}
+		}
+		request.onerror = () => {//when connection error such as bad internet}
+		request.send()
+
+	the new old way: jquery
+		jQuery.getJSON('url', data => console.log('do something'))
+
+	the new way: FETCH
+		fetch('url').then(response => response.json()).then(date => console.log(data))
+
+PROMISES: (es6)
+	before promises we had callback
+
+	a promise is an object that may produce a single value in the future
+		either a resolved value or a reason that it's not resolved
+	a promise has 3 possible state : pending, fullfilled or rejected
+		a promise can only succeed or failed once
+
+	'.catch()' runs if any '.then()' before it, throws an error
+
+	example:
+		const promise = new Promise((resolve, reject)=>{
+			if(true) {
+				resolve('stuff work')
+			} else {
+				reject('error')
+			}
+		})
+		promise
+			.then(result1 => result1+'!')
+			.then(result2 => result2+'?')
+			.catch(()=> console.log('error'))
+			.then(result3 => console.log(result3))
+
+	example2:
+		const prom1 = new Promise((resolve, reject)=>setTimeout(reject, 1000, 'HII'))
+		const prom2 = new Promise((resolve, reject)=>setTimeout(reject, 2000, 'HEOOO'))
+		const prom3 = new Promise((resolve, reject)=>setTimeout(reject, 5000, 'HOURRA'))
+
+		Promise.all([prom1, prom2, prom3]).then(values => console.log(values))
+
+	example3:
+		const urls = [
+			'https://jsonplaceholder.typicode.com/users',
+			'https://jsonplaceholder.typicode.com/posts',
+			'https://jsonplaceholder.typicode.com/albums'
+		]
+		Promise.all(url.map(url => fetch(url).then(response => response.json())))
+			.then([users, posts, albums] => console.log(users, posts, albums))
+			.catch(()=>console.log('error')
+
+ASYNC-AWAIT: (part of es8, built on top of promises)
+	the goal of async/await is to make a code that's asynchronous look synchronous
+	
+	underneath the hood an async function is a fuction that returns a promise
+		async-await code are just syntactic sugar promise
+	
+	when a function has the async keyword, we can then use inside it the await keyword
+		await pauses code that return a promise until the promise return a value
+	
+	example1:
+		fetch('https://jsonplaceholder.typicode.com/users')
+			.then(resp => resp.json())
+			.then(console.log)
+		
+		async function getUsers() {
+			const resp = await fetch('https://jsonplaceholder.typicode.com/users')
+			console.log(await resp.json())
+		}
+	
+	example2:
+		const urls = [
+			'https://jsonplaceholder.typicode.com/users',
+			'https://jsonplaceholder.typicode.com/posts',
+			'https://jsonplaceholder.typicode.com/albums'
+		]
+		//pure promise
+		Promise.all(url.map(url => fetch(url).then(response => response.json())))
+			.then([users, posts, albums] => console.log(users, posts, albums))
+			.catch(()=>console.log('oops')
+
+		//async
+		const getData = async () => {
+			try {
+				const [users, posts, albums] = await Promise.all(urls.map(url => {
+					fetch(url).then(response => response.json())					
+				))
+				console.log(users, posts, albums)
+			} catch (err) {
+				console.log('oops', err)
+			}
+		}
+	
+ES9 (ES2018):
+	Object spread operator:
+		with array:
+			const array = [1,2,3,4]
+			const sum = (a,b,c,d) => a+b+c+d;
+			sum(...array) //10
+		in es6 we can use spread operator on object too:
+			const animals = {tiger: 23, lion: 5, monkey: 10, bird: 40}
+			const objectSpreadTesting = (p1, p2, p3) => console.log(p1, p2, p3)
+			const { tiger, lion, ...rest } = animals
+			objectSpreadTesting(tiger, lion, rest)
+
+	finally:
+		const urls = [
+			'https://jsonplaceholder.typicode.com/users',
+			'https://jsonplaceholder.typicode.com/posts',
+			'https://jsonplaceholder.typicode.com/albums'
+		]
+		Promise.all(url.map(url => fetch(url).then(response => response.json())))
+			.then([users, posts, albums] => console.log(users, posts, albums))
+			.catch(()=>console.log('error')
+			.finally(()=>console.log('extra'))
+
+	for await of:
+		const getData = async () => {
+			try {
+				const [users, posts, albums] = await Promise.all(urls.map(async (url) => {
+					const response = await fetch(url)
+					return response.json()
+				))
+				console.log(users, posts, albums)
+			} catch (err) {
+				console.log('oops', err)
+			}
+		}
+
+		const getData2 = async () => {
+			const arrayOfPromises = urls.map(url=>fetch(url))
+			for await (let response of arrayOfPromises) {
+				console.log(await response.json())
+			}
+		}
+
+		

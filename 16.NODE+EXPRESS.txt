@@ -1,0 +1,281 @@
+Node:
+	it's simply javascript than runs outside of the browser
+	with node, we can build backend servers, apis, robotics, chat apps, desktop apps...
+		for robotics there is a GOOD library:
+			JOHNNY-FIVE (J5), the javascript robotics ans iot platform
+
+	@node repl
+		with node, we have the 'global' object instead of the 'window' object
+			
+		'global' has different features and some similar features too
+			per example it's doesn't have the 'fetch' method, but it has the 'setTimeout'
+
+		another global(means that it's built-in in Node) object that we have is: 'process'
+			in node 'process' refers to what is running right now in the terminal, what the computer is doing
+				process.exit() //exit the current process and go back to the bash terminal
+
+		per example __dirname, module are also global object
+
+	@node file: test.js
+		const number = 5
+		setTimeout( () => console.log(number), 3000 ) 
+			//=== global.setTimeout( () => console.log(number), 3000 )
+		
+		console.log(__dirname)
+
+		$: node test.js
+			//when we run this, node will implicitly run 'process.exit()' after it hits the end of the file
+
+	Caution: 
+		node hasn't yet implement ES6 feature of 'import'
+			actually most nodejs server use instead the commonjs way, 'require' is built-in in nodejs
+
+		//script1.js
+			const file2 = require('script2') 		//=== require('./script2.js')
+			const num = file2.largeNumber
+			console.log(num + 7)
+
+		//script2.js
+			const largeNumber = 452
+			module.exports = {largeNumber: largeNumber}
+
+
+	THE 3 TYPES OF MODULES IN NODEJS
+		- first, it's modules that you create yourself
+		- BUILT-IN MODULES
+		- third, it's EXTERNAL NPM PACKAGES
+			npm i nodemon --save-dev
+				// with the --save-dev flag, this package goes to "devDependencies" in package.json
+				// so you can add it so as script:
+					"scripts": {
+						"start": "nodemon"  //OR "start": "nodemon script1.js"
+					}
+					//so that allows us to lauch nodemon for the project with just: 	npm start
+
+
+	BUILDING A SERVER: the hard method
+	@server.js
+		const http = require('http')
+
+		const server = http.createServer( (request, response) => {
+			//console.log( 'headers: ', request.headers )
+			console.log( 'method: ', request.method )
+			console.log( 'url: ', request.url )
+
+			const htmlData = "<h1>HELLLOOO<h1>"
+			const jsonData = { name: 'john', hobby: 'Skating' }
+
+			response.setHeader( 'Content-Type', 'application/json' ) 
+				//OR setHeader( 'Content-Type', 'text/html' ) for html data
+
+			response.end(JSON.stringify(jsonData)) //OR response.end(htmlData)
+		})
+
+		server.listen(3000)
+
+
+EXPRESS
+	@server.js (best version)
+
+		const express = require('express')
+		const app = express()
+
+		app.get('/', () => {
+			const user = {name: 'omar', hobby: 'manga'}
+			
+			//res.send("<h1>hello<h1>")
+			res.send(user) //express will implicitly detect the content-type of our data and send it properly
+		})
+
+		app.listen(3000)
+
+express MIDDLEWARE
+		const express = require('express')
+		const app = express()
+
+		app.use( (req, res, next) => {
+			//perform_some_action_on_the_request
+			next()
+		})
+
+		//router like app.get()
+
+		app.listen(3000)
+
+
+	app.use(): is a generic express middleware
+		what a middleware does is that as a request is coming,
+			it's gonna pass through this use() method
+				and then trickle down(with the helps of the next() function)
+		so this middleware is gonna do something to the request that we just had
+			in order to perhaps make it easier to work with down in the routers
+		and the middleware in order to keep data passing through it to below, execute the 'next()' function
+
+	in resume the middleware is a function 
+		that receives request (ahead of time before its get to the routers),
+			modifies it and then passes the next() function to keep it going
+
+	use case:
+		express is a lightweight library for web development, so it has only few tools
+			so per example, if you want to access the value of 'req.body' from a post request,
+				you will have to install the middleware 'body-parser' : 
+					https://www.npmjs.com/package/body-parser
+
+
+POSTMAN:
+	const express = require('express')
+	const bodyParser = require('body-parser')
+
+	const app = express()
+
+	app.use(bodyParser.urlencoded({extended:false}))
+	app.use(bodyParser.json())
+
+	app.post('/profile', (req, res) => {
+		console.log( req.body )
+		res.send("success")
+	})
+	app.listen(3000)
+
+
+RESTFUL APIs
+	it's an architectural style, an approach, an agree set of rules to communications
+	it's a way to define our servers so that it specifies what it can provide and how to use it
+		in other word it's a way to design good urls that every apis must follow, urls that make sense
+
+	last thing, know that REST APIs are STATELESS 
+		what means that calls (requests to a certain url) can be made independently of one another 
+			and each call contains all the data necessary to complete itself successfully 
+
+
+	@
+	const express = require('express')
+	const bodyParser = require('body-parser')
+
+	const app = express()
+
+	app.use(express.static( __dirname + '/public' )) //for serving static files
+
+	app.get('home/:id', (req, res) => {
+		
+		//req.query
+			if you have (localhost:3000/home/12?name=oumar&age=22): req.query === {name: 'oumar', age: '22'}
+
+		//req.body
+		
+		//req.header
+		
+		//req.params: 
+			for (localhost:3000/home/12): req.params === { id: '12' }
+
+		res.status(400).send("simulate a page not found")
+	})
+	app.listen(3000)
+
+
+NODE FILESYSTEM MODULE:
+	@script.js
+
+		const fs = require('fs')
+
+		fs.readFile('hello.txt', (err, data) => {
+			if (err) {
+				throw error
+			} else {
+				console.log("ASYNC : ", data.toString())
+			}
+		})
+
+		myFile = fs.readFileSync('hello.txt') //by default, the read file is converted in a Buffer object
+		console.log("SYNC : ", myFile.toString())
+
+		fs.appendFile('hello.txt', 'TEXT ADDED AT THE END OF THE FILE', (error) => {
+			if (error) {
+				console.log('error')
+			}
+		})
+
+		fs.writeFile('bye.txt', 'TEXT FOR A NEW FILE', err => {
+			if (err) {
+				console.log(err)
+			}
+		})
+
+		fs.unlink('bye.txt', err => {
+			if (err) {
+				console.log(err)
+			} else {
+				console.log('successful delete')
+			}
+		})
+
+
+EXERCICE
+	www.adventofcode.com
+		an annual code event for solving problems (with any language that you want), 
+			it's happens in December, from 1 december to 24 december
+
+	@https://adventofcode.com/2015/day/1
+	@https://adventofcode.com/2015/day/1/input
+
+		const fs = require('fs')
+
+		//question 1: what floor does santa ends up on
+			// '(' --> should go up 1 floor
+			// ')' --> should go down 1 floor
+
+		function question1() {
+			fs.readFile('santa.txt', (err, data) => {
+				if (err) {
+					throw error
+				} else {
+					console.time("q1 = santa time")
+					
+					const directions = data.toString()
+					const directionsArray = directions.split('')
+
+					const answer = directionsArray.reduce((acc, currentItem) => {
+						if(currentItem === '(') {
+							return acc+=1
+						} else if (currentItem === ')') {
+							return acc-=1
+						}
+					}, 0)
+
+					console.timeEnd("q1 = santa time")
+					console.log("floor : ", answer)
+				}
+			})
+		}
+
+
+		//question 2 : when does santa first enter the basement
+		function question2() {
+			fs.readFile('santa.txt', (err, data) => {
+				if (err) {
+					throw error
+				} else {
+					console.time("q1 = santa time")
+					
+					const directions = data.toString()
+					const directionsArray = directions.split('')
+
+					let accumulator = 0
+					let counter = 0
+
+					const answer = directionsArray.some( currentItem => {
+						if(currentItem === '(') {
+							acc+=1
+						} else if (currentItem === ')') {
+						 	acc-=1
+						}
+
+						counter++
+						return accumulator < 0
+					})
+
+					console.timeEnd("q2 = santa time")
+					console.log("basement at : ", answer)
+				}
+			})
+		}

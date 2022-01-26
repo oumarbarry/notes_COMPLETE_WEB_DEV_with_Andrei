@@ -1,0 +1,132 @@
+NPM:
+	npm is a PACKAGE MANAGER for javacript and the world's largest software REGISTRY
+		so PACKAGES are located in the NPM REGISTRY, 
+			registry that so keeps track of these submitted packages
+		ANYONE CAN SUBMIT PACKAGES
+
+		Packages (or MODULES) contains: a package.json file + one/many javascript file(s)
+			package.json is a META file that describe the package
+
+	npm usage
+		pros: well you get expertise, all that collective knowledge from others
+		cons: not all packages are good code and also adding these files can make your project size bigger
+
+	yarn: still use the npm registry, it's also a tool like npm to grab things from the npm registry
+
+	there's usually three types of packages that you can find on npm:
+		first type is the packages that you can use on the browser like jQuery
+		
+		the second type is ones that give you new commands that you can use on the CLI
+		
+		finally the third type is ones that you can use on nodejs on the backend like Express
+
+	npm stands for NODE PACKAGE MANAGER
+		it was initially built for node
+			but it was so good and so popular 
+				that you can now use it for the front-end
+
+	typical project : 3 must things to do nowadays when starting a web project based on js
+		. html, css, js
+		. git, github
+		. config package.json
+
+Installing-Using Packages:
+	example of packages to install:
+		react, LODASH, LIVE-SERVER
+
+		live-server: 
+			a development server that runs on stactic and dynamic websites
+		lodash: 
+			you can think of it as an extension of javascript,
+				it adds more functions to the language, 
+					per example it add a looott of methods to process Arrays
+
+	npm allow us to install packages in two ways: LOCALLY and GLOBALLY
+		globally means it will be accessible on all the computer, usually it will give you new CLI commands
+		locally means it's accessible only inside your project folder, your project javascript files
+
+		examples:
+			locally: npm i lodash (older way of doing this was: npm i --save lodash)
+			globally: npm install -g live-server
+
+	as soon as we do npm install <package> (a local installation) 
+		and we have a package.json file inside the folder,
+			it will add it to our dependencies (== packages that our website needs to work)
+				and the way package.json finds these is that these all lives under the 'node_modules' folder
+
+	IN A STATIC PROJECT LIKE background-generator:
+		- to test the installation of lodash, add this in the 'script.js' file
+			var _ = require('lodash')
+			var array = [1,2,6,7,8,9]
+			var newArray = _.without(array, 2)
+			console.log( 'array : ',  newArray)
+
+		- npm install -g browserify
+		
+		- browserify script.js > bundle.js
+
+			if you don't bundle the js file, the browser will not understand the code above
+				it's browserify(+commonjs) that allow us to use the 'require' syntax in the browser
+					'require' syntax that is built-in in node.js
+
+		- then replace in the html file: <script src="script.js"></script> by <script src="bundle.js"></script>
+
+		CONS:	
+			everytime you made a change in script.js you need to bundle it
+				it's annoying but without node.js, in a static project, this is how things work
+
+			in this project, we're only using the 'without()' method
+				but our bundle.js file is massive 
+					because it includes the whole lodash library where we use only one function
+
+		So be careful of that when you work with NPM : that is a lot of beginners just start installing a ton of packages without thinking how much weight they add to their project
+
+		it's a better idea to first assess wheter you need a package as a team (if you work with a team)
+			and add it to the project
+				if it saves you time
+				if it's really well-written
+				if it has a big community around it
+
+		another thing is that because we now have dependencies, 
+			we need to make sure that our website always has a certain version of these dependencies
+
+		PROS:
+			package.json serves as a GREAT DOCUMENTATION
+				for our project dependencies and their SEMVER (SEMANTIC VERSIONING)
+				semver
+
+			and the biggest benefit is that with npm a project is much easier to share with other developers
+				all another dev needs to test out your project is the package.json + the js file(s)
+			so because the package.json lists out all the dependencies of a project
+					when they get the file, inside the project folder, 
+						they just have to run: "npm install"
+							that will download all the dependencies inside a new created node_modules
+
+			last things, devDependencies and NPM SCRIPTS
+				devDependencies are packages that are only needed for development and testing
+					so it's packages that will never be send in production
+				
+				//package.json
+				"scripts": {
+					"build": "browserify script.js > bundle.js && live-server"
+				}
+				// now with that write in the package.json of our project, we can run the following command:
+					npm run build 
+					npm run <script_name>		
+
+
+WHY UPDATE PACKAGES ?
+	because a library is something that's constantly evolving
+		new fixes are made, new features are added
+			and most importantlynew security issues are solved/patched
+	
+	in Github, in the Security tab, it lists out your projects security alerts
+		and you can even automated security fixes
+ 
+	https://semver.npmjs.com //nice ressource to check npm package semantic version
+
+
+CREATE A PORTFOLIO:
+	let's CUSTOM the cobidev/simplefolio (a github template portfolio to start fastly)
+
+	Ressource: hatchful.shopify.com //a free LOGO MAKER & LOGO CREATOR website
